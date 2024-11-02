@@ -18,6 +18,10 @@
 	margin: 0 auto;
 }
 
+.navbarItems img {
+	display: flex;
+}
+
 .navbarLink {
 	color: #F8BC5F;
 	text-decoration: none;
