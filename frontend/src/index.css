@@ -10,3 +10,13 @@
 #root {
   font-size: x-large;
 }
+
+button {
+  width: fit-content;
+  background-color: #004643;
+  color: #F8BC5F;
+  border: none;
+  padding: 1em;
+  border-radius: .5em;
+  cursor: pointer;
+}
