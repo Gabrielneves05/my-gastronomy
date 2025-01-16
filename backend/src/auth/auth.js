@@ -8,6 +8,8 @@ import { ObjectId } from "mongodb";
 
 const collectionName = "users"
 
+const authRouter = express.Router()
+
 passport.use(new LocalStrategy({ usernameField: 'email' }, async (email, password, callback) => {
     const user = await Mongo.db
     .collection(collectionName)
@@ -35,8 +37,6 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, async (email, passwor
         return callback(null, rest)
     })
 }))
-
-const authRouter = express.Router()
 
 authRouter.post('/signup', async (req, res) => {
     const checkUser = await Mongo.db
@@ -93,6 +93,43 @@ authRouter.post('/signup', async (req, res) => {
             })
         }
     })
+})
+
+authRouter.post('/login', async (req, res) => {
+    passport.authenticate('local', (err, user) => {
+        if(err) {
+            return res.status(500).send({
+                success: false,
+                statusCode: 500,
+                body: {
+                    text: "Error during authentication!",
+                    err
+                }
+            })
+        }
+
+        if(!user) {
+            return res.status(400).send({
+                success: false,
+                statusCode: 400,
+                body: {
+                    text: "User not found!"
+                }
+            })
+        }
+
+        const token = jwt.sign(user, 'secret')
+
+        return res.status(200).send({
+            success: true,
+            statusCode: 200,
+            body: {
+                text: "User logged in correctly!",
+                user,
+                token,
+            }
+        })
+    })(req, res)
 })
 
 export default authRouter;
