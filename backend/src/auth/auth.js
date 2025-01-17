@@ -12,8 +12,8 @@ const authRouter = express.Router()
 
 passport.use(new LocalStrategy({ usernameField: 'email' }, async (email, password, callback) => {
     const user = await Mongo.db
-    .collection(collectionName)
-    .findOne({ email: email })
+        .collection(collectionName)
+        .findOne({ email: email })
 
     if(!user) {
         return callback(null, false)
@@ -40,8 +40,8 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, async (email, passwor
 
 authRouter.post('/signup', async (req, res) => {
     const checkUser = await Mongo.db
-    .collection(collectionName)
-    .findOne({ email: req.body.email })
+        .collection(collectionName)
+        .findOne({ email: req.body.email })
 
     if(checkUser) {
         return res.status(500).send({
@@ -54,6 +54,7 @@ authRouter.post('/signup', async (req, res) => {
     }
 
     const salt = crypto.randomBytes(16)
+
     crypto.pbkdf2(req.body.password, salt, 310000, 16, 'sha256', async (err, hashedPassword) => {
         if(err) {
             return res.status(500).send({
@@ -67,17 +68,17 @@ authRouter.post('/signup', async (req, res) => {
         }
 
         const result = await Mongo.db
-        .collection(collectionName)
-        .insertOne({
-            email: req.body.email,
-            password: hashedPassword,
-            salt
-        })
+            .collection(collectionName)
+            .insertOne({
+                email: req.body.email,
+                password: hashedPassword,
+                salt
+            })
 
         if(result.insertedId) {
             const user = await Mongo.db
-            .collection(collectionName)
-            .findOne({ _id: new ObjectId(result.insertedId) })
+                .collection(collectionName)
+                .findOne({ _id: new ObjectId(result.insertedId) }, { projection: { password: 0, salt: 0 } })
 
             const token = jwt.sign(user, 'secret')
 
@@ -86,9 +87,8 @@ authRouter.post('/signup', async (req, res) => {
                 statusCode: 200,
                 body: {
                     text: "User registered correctly!",
-                    token,
                     user,
-                    logged: true
+                    token
                 }
             })
         }
@@ -113,7 +113,7 @@ authRouter.post('/login', async (req, res) => {
                 success: false,
                 statusCode: 400,
                 body: {
-                    text: "User not found!"
+                    text: "Credentials are not correct!"
                 }
             })
         }
@@ -127,6 +127,7 @@ authRouter.post('/login', async (req, res) => {
                 text: "User logged in correctly!",
                 user,
                 token,
+                logged: true
             }
         })
     })(req, res)
