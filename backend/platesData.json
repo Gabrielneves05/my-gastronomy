@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Guisado de lulas com ervilhas",
+    "price": 10.99,
+    "available": false,
+    "description": "Lulas frescas cozinhadas lentamente num guisado com ervilhas e tomates frescos revelam uma explosão de sabores.",
+    "ingredients": [
+      "Lulas Frescas",
+      "Ervilhas Frescas",
+      "Tomates"
+    ],
+    "category": "First"
+  },
+  {
+    "name": "Tortellini em caldo de galinha",
+    "price": 8.99,
+    "available": true,
+    "description": "Os nossos tortellini caseiros recheados com carne, flutuam num caldo de galinha quente, proporcionando-lhe uma sensação de sabor e textura.",
+    "ingredients": [
+      "Tortellini caseiro",
+      "Caldo de galinha"
+    ],
+    "category": "First"
+  },
+  {
+    "name": "Salada de camarão e legumes",
+    "price": 49.99,
+    "available": true,
+    "description": "A nossa salada de camarão e legumes é uma opção deliciosa e saborosa, com uma variedade de ingredientes frescos e saudáveis.",
+    "ingredients": [
+      "Camarão cozido",
+      "Legumes",
+      "Molho para salada"
+    ],
+    "category": "Side"
+  },
+  {
+    "name": "Salada de marisco",
+    "price": 35.99,
+    "available": true,
+    "description": "Uma salada de marisco fresca com marisco misto, temperada com azeite extra virgem e salada de alho.",
+    "ingredients": [
+      "Marisco misto",
+      "Azeite extra virgem"
+    ],
+    "category": "Appetizer"
+  },
+  {
+    "name": "Lasanha à bolonhesa",
+    "price": 19.99,
+    "available": true,
+    "description": "Camadas de massa com ovos intercaladas com um rico molho de carne picada e um fofo molho bechamel e manjericão",
+    "ingredients": [
+      "Molho bechamel",
+      "Molho de carne picada",
+      "Massa com ovos",
+      "Manjericão"
+    ],
+    "category": "First"
+  },
+  {
+    "name": "Pão de cereais integral",
+    "price": 5.99,
+    "available": true,
+    "description": "Pão integral acabado de cozer, estaladiço por fora e macio por dentro, perfeitamente preparado para o seu dia.",
+    "ingredients": [
+      "Farinha de cereais integrais",
+      "Água",
+      "Fermento",
+      "Sal"
+    ],
+    "category": "Other"
+  },
+  {
+    "name": "Almôndegas em molho de tomate",
+    "price": 16.99,
+    "available": true,
+    "description": "Almôndegas de carne moída macias, imersas num molho de tomate e manjericão, vão fazê-lo dizer “Mama-mia”.",
+    "ingredients": [
+      "Carne moída",
+      "Molho de tomate",
+      "Manjericão",
+      "Manteiga"
+    ],
+    "category": "Second"
+  },
+  {
+    "name": "Peixe-espada fumado com legumes grelhados",
+    "price": 25.99,
+    "available": true,
+    "description": "Peixe-espada fumado com legumes tostados e sementes de sésamo, uma deliciosa combinação de sabores.",
+    "ingredients": [
+      "Peixe-espada",
+      "Legumes grelhados",
+      "Sementes de sésamo"
+    ],
+    "category": "Appetizer"
+  },
+  {
+    "name": "Salmão grelhado",
+    "price": 49.99,
+    "available": true,
+    "description": "Um delicioso filete de salmão fresco grelhado, acompanhado por uma de legumes mistos ao molho.",
+    "ingredients": [
+      "Salmão grelhado",
+      "Legumes mistos"
+    ],
+    "category": "Second"
+  }
+]
